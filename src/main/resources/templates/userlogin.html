@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <!--表示用最新ie浏览器内核-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--移动设备优先-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>登录学生管理系统</title>
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+    <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
+
+    <script th:href="@{js/md5.js}" src="js/md5.js"></script>
+
+    <link th:href="@{css/common.css}" href="css/common.css" rel="stylesheet">
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            //ajax submit.
+            $("#form").submit(function()  {
+                var tmp = getMd5($("#password").val());
+                $("#password").val(tmp);
+            });
+        });
+    </script>
+</head>
+<body>
+
+<form th:id="form" th:action="@{/login}" th:method="post">
+    <h1 >[(${error != null}?${error}:'')]</h1>
+    <!--<div class="form-group">
+        <label for="exampleInputEmail1">邮箱</label>
+        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="邮箱">
+    </div>-->
+    <div class="form-group">
+        <label for="exampleInputName1">用户名</label>
+        <input type="text" th:name="username" class="form-control" id="exampleInputName1" placeholder="用户名">
+    </div>
+    <div class="form-group">
+        <label for="exampleInputPassword1">密码</label>
+        <input type="password" th:id="password" th:name="password" class="form-control" id="exampleInputPassword1" placeholder="密码">
+    </div>
+    <!--<div class="form-group">
+        <label for="exampleInputFile">文件</label>
+        <input type="file" id="exampleInputFile">
+        <p class="help-block">示例块级帮助文本</p>
+    </div>-->
+    <div class="checkbox">
+        <label>
+            <input type="checkbox" th:name="remember"> 记住
+        </label>
+    </div>
+    <button type="submit" class="btn btn-default">提交</button>
+</form>
+
+</body>
+</html>
