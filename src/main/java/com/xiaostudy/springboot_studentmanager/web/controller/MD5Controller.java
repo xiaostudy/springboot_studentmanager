@@ -11,6 +11,9 @@ public class MD5Controller {
     @ResponseBody
     @RequestMapping("/md5")
     public String getMd5(String password) {
+        if(password == null || password.trim().length() <= 0) {
+            return "";
+        }
         return MakeMD5.getMD5(password);
     }
 }
