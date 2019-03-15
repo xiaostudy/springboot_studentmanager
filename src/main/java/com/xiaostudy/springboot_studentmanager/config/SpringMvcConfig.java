@@ -22,8 +22,8 @@ public class SpringMvcConfig extends WebMvcConfigurationSupport {
     // 过滤请求
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(new LoginHandlerInterceptor()).addPathPatterns("/**")
-                .excludePathPatterns("/webjars/**", "/css/**", "/js/**", "/index.html", "/", "/userlogin", "/login", "/md5");
+        /*registry.addInterceptor(new LoginHandlerInterceptor()).addPathPatterns("/**")
+                .excludePathPatterns("/webjars/**", "/css/**", "/js/**", "/index.html", "/", "/userlogin", "/login", "/md5");*/
     }
 
     // 静态资源映射

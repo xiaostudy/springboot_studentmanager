@@ -1,6 +1,8 @@
 body {
     margin-left: 10%;
     margin-right: 10%;
+    margin-top: 80px;
+    background-color: #c1e2b3;
 }
 
 form {
@@ -38,4 +40,8 @@ form {
     margin-bottom: 10px;
     border-top-left-radius: 0;
     border-top-right-radius: 0;
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> f64e4c6f6a5bbbb8749fe43cb528bfabfe8c0c0b
